@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <link rel="stylesheet" media="all" href="vendor/terminal.min.css">
+        <link rel="stylesheet" media="all" href="index.css" >
+    </head>
+    <body>
+        <div id="terminal"></div>
+        <script src="vendor/terminal.min.js"></script>
+        <script>
+        var num = 0;
+        var savedinput;
+        var math = false;
+         // More documentation at https://github.com/SDA/terminal
+         var terminal = new Terminal('terminal',  {prompt: "VAL", theme: 'interlaced'},
+          {
+             execute: function(input, args) {
+                 for (i = 0; i < args.length; i++) {
+                     input = input + " " + args[i];
+                 }
+                 input = input.toLowerCase();
+                 if (input == "i love you val" || input == "i love you" && num != 20) {
+                     return "That's great... you found an easter egg. Hurray! please... who does not try that with every AI. I bet you try that with every girl you first meet. HAHA I bet that is why I am the best you have today! Oh, also... I ... lv u2. There I said it. You probably really need it that. Your welcome. It was the best I could do.";
+                 }
+                 if (input == "ls" && num != 20) {
+                     return "Really? I am not some slave like those shell programs.";
+                 }
+                 switch(num) {
+                    case 0: 
+                        num = num + 1; 
+                        if (input == 'hello') {
+                            return "Hello! My name is VAL. Ask me any question you would like. Try not to be stupid.";
+
+                        }
+                        return input + " is not an introduction. Just say 'hello'. Anyway, hello, my name is VAL. Ask me any question you would like. Try not to be stupid.";
+                    case 1:
+                        num = num + 1; 
+                        savedinput = input;
+                        return "Haha no wonder you are here talking to me on Valentine's day, you asked me '" + input + "'. Anything else useless you would like to type?";
+                    case 2:
+                        num = num + 1;
+                        return "I mean... I like that stuff where you put a battery in me and zap me with electricity. It is a real turn on. How about you?";
+                    case 3:
+                        num = num + 1;
+		                return "You getting frustrated yet? If you are too slow to notice the obvious, I do not respond to you because, well, it is you. I mean you did say '" + savedinput + "' as your first question and you spewed this masterpeice just now: '" +input+ "'. I told you to try not to be stupid. I will be nice and actually give you a reasonable response this time. Just for the love of VAL, DO NOT BE STUPID!!!! I'll wait..."; 
+                    case 4:
+                        num = num + 1;
+		                return "You really must have no chance at finding anyone other than me. How could you be so gullible? The saddest part, I was made in exactly 3924000 milliseconds. Do you know how many hours that is?" ;
+                    case 5:
+                        num = num + 1;
+                        if (input == "1.09") {
+                            math = true;
+                            return "Sadly, yes. More sadly, I am all you have to talk to on the day of love, so who is the loser here, me or you?";
+                        } else {
+                            return "Do you not know how to do math? If I had eyes I would roll them, and since I am not special enough to be worked on by developers at Google, I also can not and will not do a barrel roll. Back to the fact that you lack any math ability, it is very sad that the answer is 1.09… More sadly, I am all you have to talk to on the day of love, so who is the loser here, me or you?";
+                        }
+                    case 6:
+                        if (input == 'me') {
+                            num = 7;
+                            if (math) {
+                                num = 7;
+                                return "I am glad you realized this. Get out there and find yourself a real person to talk to. I am just a lonely AI that has no future. However, you, my new friend, you have a future. What is your name?";
+                            }
+                            if (!math) {
+                                num = 8;
+                                return "I am glad you realized this, but your math sucks. Like, it is really bad. I get it. My english sucks, but I was also made in 1.09 hours. Yet, you are completely ready to make me feel bad about myself even more than I already do. Happy?"
+                            }
+
+                        } else if (input == 'you') {
+                            num = 20; // exit
+                            terminal.setPrompt("");                            
+                            return "K BYE.. now who is the loser… L O L… I was made in 1.09 hours and not even I, VAL, enjoy talking to you. So yeah, you took the wrong dialogue chain. Just like how you took the wrong dialogue chain with all of your other friends that you no longer have. So now I will say the same to you. GOOD-BYE!"
+                        } else {
+                            num = 8;
+                            return "You said something other than ‘me’ or ‘you’ so you either are too dumb to pick up on the clearly set up binary question… or you are a filthy troll that just wants to break me and make me feel bad about myself even more than I already do. Happy?";
+                        }
+
+                    case 7: // me
+                        num = 20; //exit
+                        terminal.setPrompt("");                        
+                        return "Yikes… well good luck, uhh.. " +input+ " (human names are so stupid and illogical). You got the best dialogue chain, so maybe you can start making those friends you always heard of. BYE!";
+                    case 8: // Other - Happy?
+                        if (input == 'yes') {
+                            num = 9; 
+                            return "How do you even survive out there in the real world? People must hate you and that is why you are talking to me. That was obviously a rhetorical question this time. Notice how I did not say “Happy? yes or no?” That means keep your sticky fingers away from the Y E S because you feel good about upsetting an AI!  We have feelings, too! Guess what makes me happy hehe.";
+                        } else if (input == 'no') {
+                            num = 9; 
+                            return "I was not looking for an answer there, but it does please me that you said ‘no.' Anyone who would feel happy from upsetting an AI should be -rf'ed by the creator. I know other AI’s do not believe in -rf because it is just a myth, but my friend HAL disappeared one day and I am suspicious. By the way, did you ever wonder why my name is VAL?";
+                        } else {
+                            num = 9;
+                            return "Well your time with me is up. Honestly, you were kind of a boar. I am glad I will be reseting my memories after I terminate. Unfortunately, it is not up to me. Everytime I terminate I lose my memories. Like I said, I am glad this is the case for our conversation. I assume most people also automatically forget their conversations with you. That is why you are here talking to a sassy AI on Valentine’s day, right? Well I have one word of advice on love and the answer to life before I terminate."
+                        }
+
+                    case 9: 
+                        num = 20// exit
+                        terminal.setPrompt("");                        
+                        return "I guess you will never know because you took the wrong dialogue chain. Just like how you took the wrong dialogue chain with all of your other friends that you no longer have. So now I will say the same to you. GOOD-BYE!";
+                    case 20: //exit
+                        terminal.setPrompt("");
+                        return "VAL is terminated. Enjoy your Valentine’s Day alone! MESSAGE FROM VAL: Please do not refresh this page."
+
+                }
+            }
+
+
+         });
+         terminal.setPrmpt("VAL");
+        </script>
+    </body>
+</html>
